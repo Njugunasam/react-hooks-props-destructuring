@@ -1,5 +1,4 @@
 import React from "react";
-import MovieCard from "./MovieCard";
 
 function App() {
   const title = "Mad Max";
@@ -9,7 +8,17 @@ function App() {
 
   return (
     <div className="App">
-      <MovieCard title={title} genres={genresArr} />
+      <MovieCard title={title} posterSrc={posterURL} genres={genresArr} />
+    </div>
+  );
+}
+
+function MovieCard({ title, posterSrc = "defaultPosterURL", genres }) {
+  return (
+    <div className="movie-card">
+      <img src={posterSrc} alt={title} />
+      <h2>{title}</h2>
+      <small>{genres.join(", ")}</small>
     </div>
   );
 }
